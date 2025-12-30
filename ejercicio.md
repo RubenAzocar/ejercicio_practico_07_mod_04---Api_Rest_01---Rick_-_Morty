@@ -1,0 +1,75 @@
+Ejercicio Práctico - Modelado de Clases en JavaScript con Enfoque Orientado a Objetos
+Modelado de Clases en JavaScript con Enfoque Orientado a Objetos
+
+Introducción / Objetivo
+
+El propósito de esta actividad es aplicar los principios de la programación orientada a objetos (POO) en JavaScript mediante la creación de clases, constructores y jerarquías de objetos. Se busca reforzar el pensamiento abstracto y la capacidad de modelar situaciones reales a través de código.
+Descripción de la Tarea
+
+    Escenario Taxis Urbanos
+
+        Modela las clases que representen los distintos tipos de taxis mencionados:
+
+            Taxi tradicional: auto con techo amarillo y conductor con licencia A1.
+
+            Taxi particular: auto particular con conductor clase B, dividido en:
+
+                Taxi Express: autos típicos.
+
+                Taxi Premium: autos de mayor categoría.
+
+            Taxi cargo: vehículo destinado a transportar carga en lugar de personas.
+
+    Desafío: Organiza estas clases en una jerarquía lógica (clases padre e hijas) aplicando herencia y constructores.
+
+    Escenario Catálogo Sony Chile
+
+        Modela el catálogo de productos de Sony en Chile, utilizando como referencia la información pública disponible en www.sony.cl
+
+        .
+
+        Define las clases principales (por ejemplo: Televisores, Cámaras, Audio, Consolas, Accesorios, etc.).
+
+        Establece atributos relevantes (ej.: nombre, modelo, precio, categoría) y métodos básicos (ej.: mostrar información del producto).
+
+    Clase Sumatoria
+
+        Define la clase Sumatoria, cuyo constructor reciba un número base.
+
+        Implementa el método sumar() que calcule y muestre la sumatoria acumulada, avanzando progresivamente con cada ejecución.
+
+        Implementa una página con un botón para ejecutar el método sumar() desde un objeto de la clase Sumatoria.
+
+        El objeto debe ser creado con un número base aleatorio entre 1 y 10.
+
+        La primera línea de salida debe ser generada por el constructor, y las siguientes por el método sumar().
+
+⚠️ Nota: Descarga el archivo PDF adjunto en esta actividad para visualizar los esquemas que acompañan los enunciados.
+Guías y Sugerencias Técnicas
+
+    Recuerda que en JavaScript las clases se definen con:
+
+    class NombreClase {
+        constructor(parametros) {
+            // inicialización
+        }
+        metodoEjemplo() {
+            // lógica
+        }
+    }
+
+    Para heredar de una clase:
+
+    class Hija extends Padre {
+        constructor(parametros) {
+            super(parametros);
+        }
+    }
+
+    Para generar un número aleatorio entre 1 y 10:
+
+    let base = Math.floor(Math.random() * 10) + 1;
+
+    Usa console.log() para imprimir resultados y verificar tu código paso a paso.
+
+    Organiza cada escenario en archivos separados (taxis.js, sony.js, sumatoria.js) para mantener el orden del proyecto.

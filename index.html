@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick and Morty API - Ejercicio Práctico</title>
+  <style>
+    body {
+      font-family: 'Trebuchet MS', Arial, sans-serif;
+      margin: 30px;
+      background: radial-gradient(circle at 20% 20%, #00ffae 0%, #1e1e2f 100%);
+      color: #eaff00;
+    }
+    h1 {
+      color: #00ffae;
+      text-shadow: 2px 2px 8px #2c3e50, 0 0 10px #eaff00;
+      letter-spacing: 2px;
+    }
+    button {
+      margin: 10px 5px;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #00ffae 0%, #eaff00 100%);
+      color: #1e1e2f;
+      border: 2px solid #00ffae;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1em;
+      box-shadow: 0 2px 8px #00ffae;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #eaff00 0%, #00ffae 100%);
+      color: #2c3e50;
+    }
+    .card { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #ccc; padding: 16px; margin: 10px 0; display: flex; align-items: center; }
+    .card img { width: 80px; height: 80px; border-radius: 8px; margin-right: 16px; }
+    .collectible-card {
+      background: linear-gradient(135deg, #00ffae 0%, #eaff00 100%);
+      border-radius: 20px;
+      box-shadow: 0 4px 24px #00ffae, 0 0 20px #eaff00 inset;
+      padding: 24px;
+      margin: 20px auto;
+      max-width: 370px;
+      text-align: center;
+      position: relative;
+      border: 3px solid #2c3e50;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #eaff00 0%, #00ffae 100%);
+      border-radius: 12px 12px 0 0;
+      padding: 8px 12px;
+      box-shadow: 0 2px 8px #00ffae;
+    }
+    .card-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #1e1e2f;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px #eaff00;
+    }
+    .card-id {
+      background: #1e1e2f;
+      color: #00ffae;
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 1em;
+      font-weight: bold;
+      box-shadow: 0 0 8px #eaff00;
+    }
+    .card-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px #00ffae, 0 0 12px #eaff00 inset;
+      margin-bottom: 12px;
+      border: 3px solid #1e1e2f;
+      background: #eaff00;
+    }
+    .card-body {
+      background: #1e1e2f;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 8px #00ffae;
+      color: #eaff00;
+    }
+    .card-body p {
+      margin: 8px 0;
+      font-size: 1.1em;
+      text-shadow: 0 0 4px #00ffae;
+    }
+    .card-footer {
+      font-size: 0.95em;
+      color: #00ffae;
+      margin-top: 8px;
+      background: #1e1e2f;
+      border-radius: 0 0 12px 12px;
+      padding: 6px;
+      box-shadow: 0 0 8px #eaff00;
+    }
+    .card-created {
+      font-style: italic;
+      color: #eaff00;
+      text-shadow: 0 0 4px #00ffae;
+    }
+    .species-group { margin: 20px 0; }
+    .species-title { font-weight: bold; margin-top: 10px; }
+    .character-list { list-style: none; padding: 0; }
+    .character-list li { margin: 4px 0; }
+    #character-detail img { width: 120px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Rick and Morty API - Ejercicio Práctico</h1>
+  <!-- Botón para mostrar la lista de personajes. Asociado a showList() en script.js -->
+  <button id="btn-list">Obtener lista de personajes</button>
+  <!-- Botón para agrupar personajes por especie. Asociado a showGrouped() en script.js -->
+  <button id="btn-group">Agrupar por especie</button>
+  <!-- Input para ingresar el ID del personaje. Asociado a showDetail() en script.js -->
+  <input type="number" id="character-id" min="1" max="10" placeholder="ID personaje (1-10)">
+  <!-- Botón para mostrar la ficha individual del personaje. Asociado a showDetail() en script.js -->
+  <button id="btn-detail">Ver ficha personaje</button>
+
+  <!-- Contenedor para la lista de personajes. Manipulado por showList() en script.js -->
+  <div id="output"></div>
+  <!-- Contenedor para la agrupación por especie. Manipulado por showGrouped() en script.js -->
+  <div id="grouped"></div>
+  <!-- Contenedor para la ficha coleccionable del personaje. Manipulado por showDetail() en script.js -->
+  <div id="character-detail"></div>
+
+  <!-- Inclusión del archivo de lógica JS principal -->
+  <script src="script.js"></script>
+</body>
+</html>
