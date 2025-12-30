@@ -1,75 +1,89 @@
-Ejercicio Práctico - Modelado de Clases en JavaScript con Enfoque Orientado a Objetos
-Modelado de Clases en JavaScript con Enfoque Orientado a Objetos
+Ejercicio Práctico - Api Rest n°1
+Actividad Consumo de API REST: Rick and Morty API
 
 Introducción / Objetivo
 
-El propósito de esta actividad es aplicar los principios de la programación orientada a objetos (POO) en JavaScript mediante la creación de clases, constructores y jerarquías de objetos. Se busca reforzar el pensamiento abstracto y la capacidad de modelar situaciones reales a través de código.
-Descripción de la Tarea
+En esta actividad pondrás en práctica el uso de API REST consumiendo información desde un servicio externo. El objetivo es comprender cómo obtener datos mediante peticiones HTTP, manipular los resultados y representarlos en una interfaz básica. Además, aplicarás un criterio de optimización al reducir llamadas innecesarias al servidor.
+Instrucciones de la Tarea
 
-    Escenario Taxis Urbanos
+    Consumo básico de la API REST
 
-        Modela las clases que representen los distintos tipos de taxis mencionados:
+        Crea un programa que obtenga información del siguiente endpoint:
+        https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10
 
-            Taxi tradicional: auto con techo amarillo y conductor con licencia A1.
+    La aplicación debe incluir botones para:
 
-            Taxi particular: auto particular con conductor clase B, dividido en:
+        Obtener la lista de los 10 primeros personajes de la API.
 
-                Taxi Express: autos típicos.
+        Mostrar los siguientes atributos: id, name, species, image.
 
-                Taxi Premium: autos de mayor categoría.
+        Agrupar los personajes por especie en una lista ordenada.
 
-            Taxi cargo: vehículo destinado a transportar carga en lugar de personas.
+        Crear una ficha individual con la información de algún personaje.
 
-    Desafío: Organiza estas clases en una jerarquía lógica (clases padre e hijas) aplicando herencia y constructores.
+Optimización en el consumo de datos
 
-    Escenario Catálogo Sony Chile
+    Adapta el servicio del ejercicio anterior para que el listado se obtenga solo la primera vez que presiones el botón.
 
-        Modela el catálogo de productos de Sony en Chile, utilizando como referencia la información pública disponible en www.sony.cl
+    A partir de la segunda vez, la información debe mostrarse de forma local (almacenada en memoria), evitando nuevas llamadas a la API.
+
+    Puedes consultar la documentación oficial aquí: Rick and Morty API Documentation
 
         .
 
-        Define las clases principales (por ejemplo: Televisores, Cámaras, Audio, Consolas, Accesorios, etc.).
-
-        Establece atributos relevantes (ej.: nombre, modelo, precio, categoría) y métodos básicos (ej.: mostrar información del producto).
-
-    Clase Sumatoria
-
-        Define la clase Sumatoria, cuyo constructor reciba un número base.
-
-        Implementa el método sumar() que calcule y muestre la sumatoria acumulada, avanzando progresivamente con cada ejecución.
-
-        Implementa una página con un botón para ejecutar el método sumar() desde un objeto de la clase Sumatoria.
-
-        El objeto debe ser creado con un número base aleatorio entre 1 y 10.
-
-        La primera línea de salida debe ser generada por el constructor, y las siguientes por el método sumar().
-
-⚠️ Nota: Descarga el archivo PDF adjunto en esta actividad para visualizar los esquemas que acompañan los enunciados.
 Guías y Sugerencias Técnicas
 
-    Recuerda que en JavaScript las clases se definen con:
+    Usa fetch() o axios para obtener los datos desde el endpoint.
 
-    class NombreClase {
-        constructor(parametros) {
-            // inicialización
-        }
-        metodoEjemplo() {
-            // lógica
-        }
-    }
+    fetch("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10")
+      .then(res => res.json())
+      .then(data => console.log(data));
 
-    Para heredar de una clase:
+    Para trabajar con listas y agrupaciones, apóyate en métodos como .map(), .filter() y .reduce().
 
-    class Hija extends Padre {
-        constructor(parametros) {
-            super(parametros);
-        }
-    }
+    Usa estructuras simples en HTML (listas, tablas o tarjetas) para mostrar la información (<ul>, <table>, <div> con clases).
 
-    Para generar un número aleatorio entre 1 y 10:
+    Considera almacenar los datos obtenidos en una variable global o estructura de datos local, evitando así llamar al servicio en cada interacción.
 
-    let base = Math.floor(Math.random() * 10) + 1;
+    Utiliza console.log() para verificar que los datos llegan correctamente antes de mostrarlos en pantalla.
 
-    Usa console.log() para imprimir resultados y verificar tu código paso a paso.
 
-    Organiza cada escenario en archivos separados (taxis.js, sony.js, sumatoria.js) para mantener el orden del proyecto.
+Ejemplo de salida esperada
+
+1. Lista de personajes (primeros 10):
+
+ID: 1 - Nombre: Rick Sanchez - Especie: Human
+ID: 2 - Nombre: Morty Smith - Especie: Human
+ID: 3 - Nombre: Summer Smith - Especie: Human
+ID: 4 - Nombre: Beth Smith - Especie: Human
+ID: 5 - Nombre: Jerry Smith - Especie: Human
+ID: 6 - Nombre: Abadango Cluster Princess - Especie: Alien
+ID: 7 - Nombre: Abradolf Lincler - Especie: Human
+ID: 8 - Nombre: Adjudicator Rick - Especie: Human
+ID: 9 - Nombre: Agency Director - Especie: Human
+ID: 10 - Nombre: Alan Rails - Especie: Human
+
+2. Agrupación por especie (ejemplo ordenado):
+
+Alien
+ - Abadango Cluster Princess (ID: 6)
+
+Human
+ - Rick Sanchez (ID: 1)
+ - Morty Smith (ID: 2)
+ - Summer Smith (ID: 3)
+ - Beth Smith (ID: 4)
+ - Jerry Smith (ID: 5)
+ - Abradolf Lincler (ID: 7)
+ - Adjudicator Rick (ID: 8)
+ - Agency Director (ID: 9)
+ - Alan Rails (ID: 10)
+
+3. Ficha de personaje (ejemplo con Rick Sanchez):
+
+ID: 1
+Nombre: Rick Sanchez
+Especie: Human
+Imagen: [se muestra la foto del personaje]
+
+(En la página, la ficha se puede mostrar como una tarjeta con el nombre, especie e imagen).
